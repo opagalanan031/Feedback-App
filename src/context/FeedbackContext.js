@@ -4,10 +4,7 @@ const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({children}) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [feedback, setFeedback] = useState([
-        
-    ])
-
+    const [feedback, setFeedback] = useState([]);
     const [feedbackEdit, setFeedbackEdit] = useState({
         item: {},
         edit: false
@@ -36,6 +33,7 @@ export const FeedbackProvider = ({children}) => {
         if(window.confirm('Are you sure you want to delete?')) {
             await fetch(`/feedback/${id}`, {method: 'DELETE'});
             setFeedback(feedback.filter((item) => item.id !== id));
+            // window.location.reload();
         }
     }
 
@@ -44,6 +42,12 @@ export const FeedbackProvider = ({children}) => {
             body: JSON.stringify(updateItem)});
         const data = await response.json();
         setFeedback(feedback.map((item) => item.id === id ? {...item, ...data} : item))
+
+        setFeedbackEdit({
+            item: {},
+            edit: false,
+        })
+        
     }
 
     const editFeedback = (item) => {
@@ -53,17 +57,19 @@ export const FeedbackProvider = ({children}) => {
         })
     }
 
-    return <FeedbackContext.Provider value={{
-        feedback,
-        feedbackEdit,
-        isLoading,
-        addFeedback,
-        deleteFeedback,
-        editFeedback,
-        updateFeedback
-    }}>
-        {children}
-    </FeedbackContext.Provider>
+    return (
+        <FeedbackContext.Provider value={{
+            feedback,
+            feedbackEdit,
+            isLoading,
+            addFeedback,
+            deleteFeedback,
+            editFeedback,
+            updateFeedback
+        }}>
+            {children}
+        </FeedbackContext.Provider>
+    )
 }
 
 export default FeedbackContext;
