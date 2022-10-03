@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import FeedbackContext from '../context/FeedbackContext';
 
@@ -19,4 +18,4 @@ function FeedabackStats() {
     )
 }
 
-export default FeedabackStats
+export default FeedabackStats;

@@ -45,10 +45,13 @@ function FeedbackForm() {
             
             if(feedbackEdit.edit === true) {
                 updateFeedback(feedbackEdit.item.id, newFeedback);
+                feedbackEdit.edit = false;
             } else {
                 addFeedback(newFeedback);
             }
 
+            setBtnDisabled(true);
+            setRating(10);
             setText('');
         }
     }
@@ -65,7 +68,7 @@ function FeedbackForm() {
                 {message && <div className='message'>{message}</div>}
             </form>
         </Card>
-        )
-    }
+    )
+}
 
-export default FeedbackForm
+export default FeedbackForm;
