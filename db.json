@@ -1,14 +1,9 @@
 {
   "feedback": [
     {
-      "text": "This is a review",
-      "rating": 9,
-      "id": 4
-    },
-    {
-      "text": "A good review",
-      "rating": 9,
-      "id": 6
+      "text": "First review",
+      "rating": 7,
+      "id": 1
     }
   ]
 }

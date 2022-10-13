@@ -13,7 +13,7 @@ function FeedbackList() {
 
     return isLoading ? (
       <Spinner />
-      ) : (
+    ) : (
       <div className='feedback-list'>
         <AnimatePresence>
           {feedback.map((item) => (
@@ -31,15 +31,17 @@ function FeedbackList() {
       </div>
     );
     
-
     /* Without animations */
-    // return (
-    //     <div className='feedback-list'>
-    //         {feedback.map((item) => (
-    //             <FeedbackItem key={item.id} item={item} handleDelete={handleDelete} />
-    //         ))}
-    //     </div>
-    // )
+    // return isLoading ? (
+    //   <Spinner />
+    // ) : (
+    //   <div className='feedback-list'>
+    //     {feedback.map((item) => (
+    //       <FeedbackItem key={item.id} item={item} />
+    //     ))}
+    //   </div>
+    // );
+
 }
 
 

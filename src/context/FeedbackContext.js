@@ -33,7 +33,7 @@ export const FeedbackProvider = ({children}) => {
         if(window.confirm('Are you sure you want to delete?')) {
             await fetch(`/feedback/${id}`, {method: 'DELETE'});
             setFeedback(feedback.filter((item) => item.id !== id));
-            // window.location.reload();
+            // window.location.reload(); // Quick fix
         }
     }
 
