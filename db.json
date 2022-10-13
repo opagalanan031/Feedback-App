@@ -4,6 +4,11 @@
       "text": "This is a review",
       "rating": 9,
       "id": 4
+    },
+    {
+      "text": "A good review",
+      "rating": 9,
+      "id": 6
     }
   ]
 }
